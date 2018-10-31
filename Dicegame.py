@@ -1,4 +1,4 @@
-import Dicegame_Functions.py
+from Dicegame_Functions import *
 
 init = 0
 initDice = 0
@@ -24,16 +24,16 @@ while True:
 
         if initDice == 0:
             DiceNumber = initiateDice()
-            DiceNumber = int(DiceNumber)
+            DiceSides = initiateDiceSides()
             initDice = 1
 
-        DiceRoll = roll(DiceNumber) #rolls the dice and saves the roll
-        DiceDupes = dupelist(DiceRoll, DiceNumber)
+        DiceRoll = roll(DiceNumber, DiceSides) #rolls the dice and saves the roll
+        DiceDupes = dupelist(DiceRoll, DiceNumber, DiceSides)#list of the number of times a number has been rolled
 
         print ("your Diceroll is:" + str(DiceRoll))
         print ("Number of times you got a number(in order):" + str(DiceDupes))
 
-        Qroll = input("Play again? (y/n)")
+        Qroll = input("Play again? (y/n): ")
 
     else:
         print ("please enter either 'y' or 'n'  (or 'Y'/'N')")
